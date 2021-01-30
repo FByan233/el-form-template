@@ -1,3 +1,3 @@
 # el-form-template
 + 效果图
-![](./src/assets/demo.png)
+![demo-png](./src/assets/demo.png)
