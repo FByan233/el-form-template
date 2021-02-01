@@ -20,7 +20,30 @@
               >
             </el-switch>
         </template>
-        </fb-table>
+      </fb-table>
+      <!-- 分页 -->
+      <pagination 
+        :total="total"
+        :page.sync="listQuery.page"
+        :size.sync="listQuery.size"
+        @pagination="getList"
+      />
+      <el-dialog
+        title="提示"
+        :visible.sync="dialogVisible"
+        width="50%"
+        :before-close="handleClose">
+        <fb-from
+          :form="infoForm"
+          :form-items="searchTags"
+          :select-list="selectList"
+          :rules="formRules"
+          :form-disable="false" />
+          <span slot="footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+          </span>
+      </el-dialog>
     </el-card>
 </template>
 
@@ -55,10 +78,28 @@ export default {
           label: '详情',
           isShow: true
         },
+        total: 10,
         listQuery: {
           page: 1,
           size: 10
-        }
+        },
+        dialogVisible:false,
+        infoForm: {},
+        formRules: {
+          id:[{ required: true, message: '请输入客户代码', trigger: 'blur' }],
+          person:[{ required: true, message: '请输入借用人', trigger: 'blur' }],
+          timer:[{ required: true, message: '请输入创建时间', trigger: 'blur' }]
+        },
+        searchTags:[
+          { label: '客户代码', prop: 'id', tag: 'text'},
+          { label: '借用人', prop: 'person', tag: 'text' },
+          { label: '备件类型', prop: 'type', tag: 'text' },
+          { label: '备件型号', prop: 'model', tag: 'text' },
+          { label: '库房位置', prop: 'place', tag: 'text' },
+          { label: '创建时间', prop: 'timer', tag: 'text' },
+          { label: '是否有效', prop: 'vail', tag: 'switch' }
+        ],
+        selectList:{}
     }
   },
   computed: {},
@@ -68,8 +109,14 @@ export default {
   },
   mounted () {},
   methods: {
+    handleClose() {
+      this.infoForm=this.$options.data().infoForm
+      this.dialogVisible=false
+    },
     scopedHandle(row) {
       console.log(row)
+      this.infoForm = Object.assign({}, row)
+      this.dialogVisible=true
     },
     initList() {
       let MockList=Mock.mock({
@@ -84,6 +131,9 @@ export default {
         }]
       })
       this.tableData = MockList.list
+    },
+    getList(val) {
+      console.log(val)
     }
   }
 }

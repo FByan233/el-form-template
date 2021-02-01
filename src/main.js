@@ -5,7 +5,8 @@ import VeUi from './components/Ve-form'
 Vue.use(VeUi, {
   component: [
     'FbTable',
-    'FbFrom'
+    'FbFrom',
+    'Pagination'
   ]
 })
 import ElementUI from 'element-ui';
