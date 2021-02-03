@@ -20,23 +20,25 @@
     date|日期选择
     switch|switch
 ## table组件
-+ tableColumns --> 对应每一列
-+ 配置项:
-   - tableColumns:[ { prop: 'vail', label: '是否有效', slot: true, width:'170px' }]
-      prop->对应的字段名   label-> tableHeader   slot->开启插槽可自定义表格当中的类型
-   - options:{
-          stripe: true, // 开启斑马背景
-          align: 'center', //文本居中显示
-          loading: true, // loading动画
-          selection: false, // 时候否展示选中框
-          showIndex: true, // 是否展示序号
-          showTooltip: true // 是否当内容过长被隐藏时显示 tooltip
++ tableColumns --> 对应每一列 
++ 配置项: <br/>
+   - tableColumns:[ { prop: 'vail', label: '是否有效', slot: true, width:'170px' }] <br/>
+      prop->对应的字段 <br/>  
+      label-> 表头名称 <br/>
+      slot->开启插槽可自定义表格当中的类型 <br/>
+   - options:{ <br/>
+          stripe: true, // 开启斑马背景 <br/>
+          align: 'center', //文本居中显示 <br/> 
+          loading: true, // loading动画 <br/>
+          selection: false, // 时候否展示选中框 <br/>
+          showIndex: true, // 是否展示序号 <br/>
+          showTooltip: true // 是否当内容过长被隐藏时显示 tooltip <br/>
         },
-    - operation:{
-          label: '详情', // 操作位title
-          isShow: true // 是否展示
+    - operation:{ <br/>
+          label: '详情', // 操作位title <br/>
+          isShow: true // 是否展示 <br/>
         },
 ## Pagination组件
 + [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
-+ 效果图
+## 效果图
 ![demo-png](/src/assets/demo.png)
