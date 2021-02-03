@@ -1,5 +1,6 @@
 # el-form-template
-+ 二次封装elementUI 快速构成简单的后台管理系统常见的搜索 表单和表格页面和功能的实现 
++ 仅仅页面demo
++ 利用elementUI框架二次封装组件 快速构成简单的后台管理系统常见的搜索 表单和表格页面和功能的实现 
 ## 使用方法
 + 复制component下的form和table组件,可全局注册组件或单独页面引用并注册
 ## search 部分
